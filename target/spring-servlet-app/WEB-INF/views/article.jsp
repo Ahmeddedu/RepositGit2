@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="web.store.Article" %>
+<%@ page import="first.data.Article" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
