@@ -6,10 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springmvc (1)" />
         <module name="articles" />
+        <module name="springmvc (1) (edu.ithillel.spring.first)" />
         <module name="mongostarter" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="springmvc (1)" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
