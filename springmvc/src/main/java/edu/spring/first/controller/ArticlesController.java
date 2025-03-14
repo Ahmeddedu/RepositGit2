@@ -31,12 +31,4 @@ public class ArticlesController {
          return new RedirectView("/articles");
     }
 
-    /*
-    @GetMapping("/foos/{id}")
-    @ResponseBody
-    public String getFooById(@PathVariable String id) {
-        return "ID: " + id;
-    }
-
-     */
 }

@@ -8,6 +8,7 @@
 
     <modules>
         <module>springmvc</module>
+        <module>springmvc2</module>
         <module>articles</module>
         <module>mongostarter</module>
     </modules>
