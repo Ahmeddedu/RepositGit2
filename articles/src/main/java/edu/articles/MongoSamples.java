@@ -136,7 +136,7 @@ public class MongoSamples {
     }
 
     public static void findAndParseAndOut(MongoCollection<Document> parrots) {
-        Document doc = findInZoo(parrots, "Captain Squawk");
+        Document doc = findInZoo(parrots, "Just Pirate");
         System.out.println(doc.toJson());
         Object objectName = doc.get("name");
         String stringedName = (String) doc.get("name");
