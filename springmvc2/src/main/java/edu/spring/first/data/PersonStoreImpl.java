@@ -3,7 +3,6 @@ package edu.spring.first.data;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
-import org.springframework.ui.Model;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
@@ -14,27 +13,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class ArticleStoreImpl implements ArticleStore {
+public class PersonStoreImpl implements PersonStore {
 
-    private ArticlesCollection collection;
+    private PeopleCollection collection;
 
     @Override
-    public List<Article> getArticles() {
-        ArrayList<Article> res = new ArrayList<>(collection.getArticles());
-
-        res.add(new Article("super news today!", "long and not very interesting but very detailed news description"));
-        return res;
+    public List<Person> getPeople() {
+        return new ArrayList<>(collection.getPeople());
     }
 
     @Override
-    public synchronized void addArticle(Article a) {
-        collection.getArticles().add(a);
+    public synchronized void addPerson(Person p) {
+        collection.getPeople().add(p);
         persist();
     }
 
     @Override
-    public synchronized void removeArticle(Article a) {
-        collection.getArticles().remove(a);
+    public synchronized void removePerson(Person p) {
+        collection.getPeople().remove(p);
         persist();
     }
 
@@ -46,10 +42,10 @@ public class ArticleStoreImpl implements ArticleStore {
         try {
             byte[] bytes = Files.readAllBytes(Paths.get("output.json"));
             ObjectMapper m = new ObjectMapper();
-            collection = m.readValue(bytes, ArticlesCollection.class);
+            collection = m.readValue(bytes, PeopleCollection.class);
         } catch (IOException e) {
-            collection = new ArticlesCollection();
-            collection.setArticles(new ArrayList<>());
+            collection = new PeopleCollection();
+            collection.setPeople(new ArrayList<>());
             System.out.println("io exception" + e.getMessage());
         }
     }
@@ -59,15 +55,10 @@ public class ArticleStoreImpl implements ArticleStore {
 
         ObjectMapper m = new ObjectMapper();
 
-        String content = null;
         try {
-            content = m.writeValueAsString(collection);
+            String content = m.writeValueAsString(collection);
             Files.write(filePath, content.getBytes());
             System.out.println("Successfully written to file: " + filePath.toAbsolutePath());
-
-        } catch (JsonProcessingException e) {
-            System.err.println("Error : " + e.getMessage());
-            throw new RuntimeException(e);
         } catch (IOException e) {
             System.err.println("Error : " + e.getMessage());
             throw new RuntimeException(e);
