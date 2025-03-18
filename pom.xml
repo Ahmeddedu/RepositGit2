@@ -11,5 +11,6 @@
         <module>springmvc2</module>
         <module>articles</module>
         <module>mongostarter</module>
+        <module>details</module>
     </modules>
 </project>

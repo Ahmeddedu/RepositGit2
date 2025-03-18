@@ -3,21 +3,23 @@ package edu.articles.dto;
 import org.bson.types.ObjectId;
 
 public class Article {
-    private ObjectId id;  // Унікальний ідентифікатор статті
-    private String title;  // Заголовок статті
-    private String text;   // Текст статті
+    private ObjectId id;
+    private String title;
+    private String text;
+    private boolean isPublished;
 
-    // Конструктори
+
     public Article() {
     }
 
     public Article(String title, String text) {
-        this.id = new ObjectId();  // Генеруємо новий ідентифікатор
+        this.id = new ObjectId();
         this.title = title;
         this.text = text;
+        this.isPublished = false;
     }
 
-    // Геттери та сеттери
+
     public ObjectId getId() {
         return id;
     }
@@ -42,12 +44,21 @@ public class Article {
         this.text = text;
     }
 
+    public boolean isPublished() {
+        return isPublished;
+    }
+
+    public void setPublished(boolean published) {
+        isPublished = published;
+    }
+
     @Override
     public String toString() {
         return "Article{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", text='" + text + '\'' +
+                ", isPublished=" + isPublished +
                 '}';
     }
 }
