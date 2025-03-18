@@ -28,12 +28,6 @@ public class PersonStoreImpl implements PersonStore {
         persist();
     }
 
-    @Override
-    public synchronized void removePerson(Person p) {
-        collection.getPeople().remove(p);
-        persist();
-    }
-
     @PostConstruct
     public synchronized void initStore() {
         if (collection != null) {
