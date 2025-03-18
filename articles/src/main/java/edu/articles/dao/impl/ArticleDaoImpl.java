@@ -2,6 +2,8 @@ package edu.articles.dao.impl;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 import edu.articles.dao.ArticleDao;
 import edu.articles.dto.Article;
 import org.bson.Document;
@@ -28,7 +30,8 @@ public class ArticleDaoImpl implements ArticleDao {
     @Override
     public void saveArticle(Article article) {
         Document doc = new Document("title", article.getTitle())
-                .append("text", article.getText());
+                .append("text", article.getText())
+                .append("isPublished", article.isPublished());
         articleCollection.insertOne(doc);
     }
 
@@ -39,5 +42,35 @@ public class ArticleDaoImpl implements ArticleDao {
             articles.add(new Article(doc.getString("title"), doc.getString("text")));
         }
         return articles;
+    }
+
+    @Override
+    public List<Article> findArticlesByTitle(String title) {
+        List<Article> articles = new ArrayList<>();
+        for (Document doc : articleCollection.find(Filters.eq("title", title))) {
+            articles.add(new Article(doc.getString("title"), doc.getString("text")));
+        }
+        return articles;
+    }
+
+    @Override
+    public List<Article> findPublishedArticlesByTitle(String title) {
+        List<Article> articles = new ArrayList<>();
+        for (Document doc : articleCollection.find(Filters.and(
+                Filters.eq("title", title),
+                Filters.eq("isPublished", true)
+        ))) {
+            articles.add(new Article(doc.getString("title"), doc.getString("text")));
+        }
+        return articles;
+    }
+
+    @Override
+    public void publishArticle(String title) {
+        articleCollection.updateOne(
+                Filters.eq("title", title),
+                Updates.set("isPublished", true)
+        );
+        System.out.println("Стаття з заголовком '" + title + "' опублікована.");
     }
 }

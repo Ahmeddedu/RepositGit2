@@ -1,6 +1,5 @@
 package edu.articles.config;
 
-
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
@@ -12,12 +11,11 @@ public class MongoConfig {
 
     @Bean
     public MongoClient mongoClient() {
-        MongoClient res =  MongoClients.create("mongodb://localhost:27017");
-        return res;
+        return MongoClients.create("mongodb://localhost:27017");
     }
 
     @Bean
     public MongoDatabase mongoDatabase(MongoClient mongoClient) {
-        return mongoClient.getDatabase("mydatabase");
+        return mongoClient.getDatabase("mydatabase");  // Замініть "mydatabase" на назву вашої бази даних
     }
 }
