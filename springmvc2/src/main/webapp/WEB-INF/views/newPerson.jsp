@@ -15,8 +15,8 @@
 
         <label for="gender">Gender:</label>
         <select id="gender" name="gender" required>
-            <option value="Muzhlan">Male</option>
-            <option value="Zhenchina">Female</option>
+            <option value="Muzhlan">Muzhlan</option>
+            <option value="Zhenchina">Zhenchina</option>
         </select><br><br>
 
         <input type="submit" value="Add Person">
