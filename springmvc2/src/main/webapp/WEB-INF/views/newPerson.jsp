@@ -15,15 +15,13 @@
 
         <label for="gender">Gender:</label>
         <select id="gender" name="gender" required>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
+            <option value="Muzhlan">Male</option>
+            <option value="Zhenchina">Female</option>
         </select><br><br>
 
         <input type="submit" value="Add Person">
     </form>
 
-    <br>
     <a href="/people">Back to People List</a>
 </body>
 </html>

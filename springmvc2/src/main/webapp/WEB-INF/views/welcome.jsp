@@ -4,8 +4,7 @@
     <title>Welcome</title>
 </head>
 <body>
-    <h1>Welcome to the People Management App!</h1>
-    <p>This is a simple application to manage people's data.</p>
+    <h1>Hello Go v gorod</h1>
 
     <a href="/people">
         <button>Go to People List</button>

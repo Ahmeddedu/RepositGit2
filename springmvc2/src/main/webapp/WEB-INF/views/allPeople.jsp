@@ -15,19 +15,16 @@
                 out.print("<h2>" + p.getName() + "</h2>");
                 out.print("<p>Age: " + p.getAge() + "</p>");
                 out.print("<p>Gender: " + p.getGender() + "</p>");
-                out.print("<form action='/people/" + p.getName() + "?action=delete' method='post' style='display:inline;'>");
-                out.print("<input type='submit' value='Delete'>");
                 out.print("</form>");
                 out.print("<hr>");
             }
         } else {
-            out.print("<p>No people found.</p>");
+            out.print("<p>Nikogo</p>");
         }
     %>
 
-    <br>
     <a href="/people/new">Add New Person</a>
-    <br>
+
     <a href="/">Back to Main</a>
 </body>
 </html>

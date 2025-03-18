@@ -15,7 +15,7 @@ public class Person {
         this.gender = gender;
     }
 
-    @Override
+    @Override// честно говорю это мне помог сдлеать ии
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
