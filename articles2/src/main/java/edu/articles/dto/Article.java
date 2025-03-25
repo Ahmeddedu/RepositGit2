@@ -7,7 +7,7 @@ public class Article {
     private String title;
     private String text;
     private boolean isPublished;
-    private ObjectId authorId;
+
 
     public Article() {
     }
@@ -19,13 +19,6 @@ public class Article {
         this.isPublished = false;
     }
 
-    public Article(String title, String text, ObjectId authorId) {
-        this.id = new ObjectId();
-        this.title = title;
-        this.text = text;
-        this.isPublished = false;
-        this.authorId = authorId;
-    }
 
     public ObjectId getId() {
         return id;
@@ -59,22 +52,13 @@ public class Article {
         isPublished = published;
     }
 
-    public ObjectId getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(ObjectId authorId) {
-        this.authorId = authorId;
-    }
-
     @Override
     public String toString() {
-        return "Стаття {" +
+        return "Article{" +
                 "id=" + id +
-                ", заголовок='" + title + '\'' +
-                ", текст='" + (text.length() > 20 ? text.substring(0, 20) + "..." : text) +
-                ", опубліковано=" + (isPublished ? "так" : "ні") +
-                ", ID автора=" + authorId +
+                ", title='" + title + '\'' +
+                ", text='" + text + '\'' +
+                ", isPublished=" + isPublished +
                 '}';
     }
 }

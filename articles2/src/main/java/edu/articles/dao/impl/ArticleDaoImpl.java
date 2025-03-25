@@ -7,7 +7,6 @@ import com.mongodb.client.model.Updates;
 import edu.articles.dao.ArticleDao;
 import edu.articles.dto.Article;
 import org.bson.Document;
-import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -32,8 +31,7 @@ public class ArticleDaoImpl implements ArticleDao {
     public void saveArticle(Article article) {
         Document doc = new Document("title", article.getTitle())
                 .append("text", article.getText())
-                .append("isPublished", article.isPublished())
-                .append("authorId", article.getAuthorId());
+                .append("isPublished", article.isPublished());
         articleCollection.insertOne(doc);
     }
 
@@ -41,11 +39,7 @@ public class ArticleDaoImpl implements ArticleDao {
     public List<Article> findAllArticles() {
         List<Article> articles = new ArrayList<>();
         for (Document doc : articleCollection.find()) {
-            articles.add(new Article(
-                    doc.getString("title"),
-                    doc.getString("text"),
-                    doc.getObjectId("authorId")
-            ));
+            articles.add(new Article(doc.getString("title"), doc.getString("text")));
         }
         return articles;
     }
@@ -54,11 +48,7 @@ public class ArticleDaoImpl implements ArticleDao {
     public List<Article> findArticlesByTitle(String title) {
         List<Article> articles = new ArrayList<>();
         for (Document doc : articleCollection.find(Filters.eq("title", title))) {
-            articles.add(new Article(
-                    doc.getString("title"),
-                    doc.getString("text"),
-                    doc.getObjectId("authorId")
-            ));
+            articles.add(new Article(doc.getString("title"), doc.getString("text")));
         }
         return articles;
     }
@@ -70,11 +60,7 @@ public class ArticleDaoImpl implements ArticleDao {
                 Filters.eq("title", title),
                 Filters.eq("isPublished", true)
         ))) {
-            articles.add(new Article(
-                    doc.getString("title"),
-                    doc.getString("text"),
-                    doc.getObjectId("authorId")
-            ));
+            articles.add(new Article(doc.getString("title"), doc.getString("text")));
         }
         return articles;
     }
