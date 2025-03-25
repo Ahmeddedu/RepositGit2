@@ -10,7 +10,7 @@
         <module>springmvc</module>
         <module>springmvc2</module>
         <module>articles</module>
-        <module>mongostarter</module>
+        <module>Mongostarter</module>
         <module>details</module>
     </modules>
 </project>
