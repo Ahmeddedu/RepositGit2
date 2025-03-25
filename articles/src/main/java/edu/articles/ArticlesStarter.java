@@ -41,4 +41,4 @@ public class ArticlesStarter {
 
         context.close();
     }
-}
+} // хихи
