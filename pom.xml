@@ -13,5 +13,6 @@
         <module>mongostarter</module>
         <module>details</module>
         <module>articlesspring</module>
+        <module>mysqlstarterr</module>
     </modules>
 </project>
