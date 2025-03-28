@@ -12,5 +12,6 @@
         <module>articles</module>
         <module>mongostarter</module>
         <module>details</module>
+        <module>articlesspring</module>
     </modules>
 </project>
