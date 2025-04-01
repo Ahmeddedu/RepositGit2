@@ -7,12 +7,15 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>springmvc</module>
-        <module>springmvc2</module>
-        <module>articles</module>
-        <module>mongostarter</module>
         <module>details</module>
-        <module>articlesspring</module>
-        <module>mysqlstarterr</module>
+        <module>springmvc</module>
+        <module>springmvc2HW</module>
+        <module>mongostarter</module>
+        <module>articlesMongo</module>
+        <module>articlesMongo2HW</module>
+        <module>articlesMongo3HW</module>
+        <module>mysqlstarter</module>
+        <module>mysqlstarter2HW</module>
+
     </modules>
 </project>
