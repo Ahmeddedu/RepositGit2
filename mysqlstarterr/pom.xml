@@ -5,7 +5,7 @@
 
     <groupId>Hilik</groupId>
     <artifactId>mysqlstarter</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1cdcd </version>
 
     <dependencies>
         <dependency>

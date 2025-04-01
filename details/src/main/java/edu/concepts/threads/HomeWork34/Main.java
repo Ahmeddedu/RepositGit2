@@ -1,7 +1,11 @@
 package edu.concepts.threads.HomeWork34;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 public class Main {
-    private static final int max = 100000000; //  тут до какого числа считаем
+    private static final int max = 100000000; //тут до какого числа считаем
     private static final int potok = 3; // сдеся количество потоков
 
     public static void main(String[] args) throws Exception {
@@ -15,29 +19,34 @@ public class Main {
         long summa = sumParallel(chisla);
         long end = System.currentTimeMillis();
 
-        System.out.println("Сумма: " + summa);
-        System.out.println("Время (параллельное): " + (end - start) + " миллисекунд");
-
+        System.out.println("Сумма " + summa);
+        System.out.println("Время " + (end - start) + " милисек");
     }
 
     private static long sumParallel(int[] chisla) throws InterruptedException {
-        int sizeChasti = max / potok;
-        SumThread[] potoki = new SumThread[potok];
+        int rozmerChasti = max / potok;
+        ExecutorService executor = Executors.newFixedThreadPool(potok);// через ExecutorService уже тут то я сделал просто как у вас
         int[] chastSum = new int[potok];
 
-        // Запускаем потоки
+
         for (int i = 0; i < potok; i++) {
             final int index = i;
-            potoki[i] = new SumThread(chisla, i * sizeChasti, (i + 1) * sizeChasti, chastSum, index);// говорб по чеснаку тут мне помог иишка
-            potoki[i].start();
+            final int start = i * rozmerChasti;
+            final int end = (i + 1) * rozmerChasti;
+
+            executor.submit(() -> {
+                long sum = 0;
+                for (int j = start; j < end; j++) {
+                    sum += chisla[j];
+                }
+                chastSum[index] = (int) sum;
+            });
         }
 
-        for (Thread potok : potoki) {
-            potok.join();
-        }
+        executor.shutdown();
+        executor.awaitTermination(Long.MAX_VALUE, TimeUnit.MILLISECONDS);
 
         long obshSum = 0;
-
         for (int sum : chastSum) {
             obshSum += sum;
         }
