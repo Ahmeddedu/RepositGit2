@@ -15,8 +15,8 @@ public class MysqlStarter {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              Statement stmt = conn.createStatement()) {
 
-            stmt.execute("DROP TABLE articles");
-            stmt.execute("DROP TABLE author");
+            // stmt.execute("DROP TABLE articles");
+            // stmt.execute("DROP TABLE author");
 
             stmt.execute("CREATE TABLE " +
                     "author" +
@@ -31,8 +31,12 @@ public class MysqlStarter {
                     " author_id INT NOT NULL," +
                     " text VARCHAR(300)," +
                     " FOREIGN KEY (author_id) REFERENCES author(id))");
-
-            stmt.execute("INSERT INTO author VALUES (1, 'Alice'), (2, 'Bob')");
+            stmt.execute("CREATE TABLE Dragons (" +
+                    "id INT AUTO_INCREMENT PRIMARY KEY," +
+                    "name VARCHAR(100) NOT NULL," +
+                    "age INT," +
+                    "color VARCHAR(50)," +
+                    "element VARCHAR(50))");
 
             ResultSet rs = stmt.executeQuery("SELECT * FROM author");
 

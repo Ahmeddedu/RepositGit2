@@ -15,7 +15,7 @@
         <module>articlesMongo2HW</module>
         <module>articlesMongo3HW</module>
         <module>mysqlstarter</module>
-        <module>mysqlstarter2HW</module>
+        <module>mysqlstarter2Hw</module>
 
     </modules>
 </project>
