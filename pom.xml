@@ -7,6 +7,7 @@
     <packaging>pom</packaging>
 
     <modules>
+
         <module>details</module>
         <module>springmvc</module>
         <module>springmvc2HW</module>
@@ -15,7 +16,8 @@
         <module>articlesMongo2HW</module>
         <module>articlesMongo3HW</module>
         <module>mysqlstarter</module>
-        <module>mysqlstarter2Hw</module>
+        <module>mysqlstarter2</module>
+        <module>itog</module>
 
     </modules>
 </project>
