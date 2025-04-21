@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class MysqlStarter {
     private static final String DB_NAME = "NewsAgency";
-    private static final String URL = "jdbc:mysql://localhost:3306/" + DB_NAME + "?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
+    private static final String URL = "jdbc:mysql://localhost:3306/?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";  // исправлено
     private static final String USER = "root";
     private static final String PASSWORD = "my-secret-pw";
 
@@ -12,7 +12,7 @@ public class MysqlStarter {
         try {
             createDatabase();
 
-            try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            try (Connection conn = DriverManager.getConnection(URL + DB_NAME, USER, PASSWORD);
                  Statement stmt = conn.createStatement()) {
 
                 stmt.execute("CREATE TABLE IF NOT EXISTS authors (" +
@@ -60,18 +60,17 @@ public class MysqlStarter {
                         System.out.println("Заголовок: " + rs.getString("title"));
                         System.out.println("Текст: " + rs.getString("text"));
                         System.out.println("Автор: " + rs.getString("author"));
-                        System.out.println("Теги: " + rs.getString("tags"));
                         System.out.println("----------------");
                     }
                 }
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private static void createDatabase() throws SQLException {
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/", USER, PASSWORD);
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              Statement stmt = conn.createStatement()) {
             stmt.execute("CREATE DATABASE IF NOT EXISTS " + DB_NAME);
             System.out.println("База данных создана или уже существует: " + DB_NAME);

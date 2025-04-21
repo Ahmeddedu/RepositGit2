@@ -14,7 +14,7 @@ public class DataController {
 
     @GetMapping("/statti")
     public String showArticles(Model model) {
-        System.out.println("Щя жди");
+        System.out.println("Запрос статей..."); // Логирование
         List<Map<String, String>> articles = new ArrayList<>();
 
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
@@ -31,10 +31,10 @@ public class DataController {
                 article.put("text", rs.getString("text"));
                 article.put("author", rs.getString("author"));
                 articles.add(article);
-                System.out.println("Найдена статья: " + article);
+                System.out.println("Найдена статья: " + article); // Логирование
             }
         } catch (SQLException e) {
-            System.err.println("Чет не так");
+            System.err.println("Ошибка при загрузке статей:");
             e.printStackTrace();
             model.addAttribute("error", "Ошибка базы данных: " + e.getMessage());
         }
@@ -45,7 +45,7 @@ public class DataController {
 
     @GetMapping("/avtori")
     public String showAuthors(Model model) {
-        System.out.println("Щя");
+        System.out.println("Запрос авторов..."); // Логирование
         List<String> authors = new ArrayList<>();
 
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
@@ -55,7 +55,7 @@ public class DataController {
             while (rs.next()) {
                 String author = rs.getString("name");
                 authors.add(author);
-                System.out.println("Найден автор: " + author);
+                System.out.println("Найден автор: " + author); // Логирование
             }
         } catch (SQLException e) {
             System.err.println("Ошибка при загрузке авторов:");
@@ -65,10 +65,5 @@ public class DataController {
 
         model.addAttribute("authors", authors);
         return "avtori";
-    }
-
-    @GetMapping("/")
-    public String home() {
-        return "index";
     }
 }
