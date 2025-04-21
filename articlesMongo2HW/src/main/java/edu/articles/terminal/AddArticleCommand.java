@@ -1,7 +1,7 @@
-package data.terminal;
+package edu.articles.terminal;
 
-import data.dao.ArticleDao;
-import data.dto.Article;
+import edu.articles.dao.ArticleDao;
+import edu.articles.dto.Article;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;

@@ -1,6 +1,6 @@
-package data.dao;
+package edu.articles.dao;
 
-import data.dto.User;
+import edu.articles.dto.User;
 
 import java.util.List;
 

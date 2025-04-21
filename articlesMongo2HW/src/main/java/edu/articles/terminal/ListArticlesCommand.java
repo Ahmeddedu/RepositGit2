@@ -1,8 +1,9 @@
-package data.terminal;
+package edu.articles.terminal;
 
-import data.dao.ArticleDao;
+import edu.articles.dao.ArticleDao;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
+import java.util.List;
 
 @Component("listArticles")
 public class ListArticlesCommand implements TerminalCommand {

@@ -16,6 +16,6 @@ public class MongoConfig {
 
     @Bean
     public MongoDatabase mongoDatabase(MongoClient mongoClient) {
-        return mongoClient.getDatabase("mydatabase");
+        return mongoClient.getDatabase("mydatabase");  // Замініть "mydatabase" на назву вашої бази даних
     }
 }

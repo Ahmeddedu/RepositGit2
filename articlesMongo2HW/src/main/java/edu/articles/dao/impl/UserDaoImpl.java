@@ -1,10 +1,10 @@
-package data.dao.impl;
+package edu.articles.dao.impl;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
-import data.dao.UserDao;
-import data.dto.User;
+import edu.articles.dao.UserDao;
+import edu.articles.dto.User;
 import org.bson.Document;
 import org.springframework.stereotype.Service;
 

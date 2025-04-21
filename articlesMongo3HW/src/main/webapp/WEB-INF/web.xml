@@ -1,5 +1,5 @@
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
-    <display-name>Spring Servlet App</display-name>
+    <display-name>Articles App</display-name>
 
     <servlet>
         <servlet-name>dispatcher</servlet-name>
@@ -10,7 +10,7 @@
         </init-param>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>data.config.Config</param-value>
+            <param-value>data.config.AppConfig</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>

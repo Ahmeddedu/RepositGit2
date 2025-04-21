@@ -1,9 +1,9 @@
-package data;
+package edu.articles;
 
-import data.dao.ArticleDao;
-import data.dao.UserDao;
-import data.dto.Article;
-import data.dto.User;
+import edu.articles.dao.ArticleDao;
+import edu.articles.dao.UserDao;
+import edu.articles.dto.Article;
+import edu.articles.dto.User;
 import org.bson.types.ObjectId;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

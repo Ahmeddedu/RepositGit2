@@ -1,4 +1,4 @@
-package data.dto;
+package edu.articles.dto;
 
 import org.bson.types.ObjectId;
 

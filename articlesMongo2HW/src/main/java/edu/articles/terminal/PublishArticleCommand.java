@@ -1,6 +1,6 @@
-package data.terminal;
+package edu.articles.terminal;
 
-import data.dao.ArticleDao;
+import edu.articles.dao.ArticleDao;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.Scanner;

@@ -1,9 +1,9 @@
-package data.terminal;
+package edu.articles.terminal;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
-import data.dto.Article;
+import edu.articles.dto.Article;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;

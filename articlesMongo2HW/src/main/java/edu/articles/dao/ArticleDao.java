@@ -1,6 +1,6 @@
-package data.dao;
+package edu.articles.dao;
 
-import data.dto.Article;
+import edu.articles.dto.Article;
 import java.util.List;
 
 public interface ArticleDao {

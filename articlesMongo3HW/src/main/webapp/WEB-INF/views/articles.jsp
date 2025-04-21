@@ -1,27 +1,19 @@
-<%@ page import="java.util.List" %>
-<%@ page import="data.dto.Article" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Articles</title>
+    <title>Список статей</title>
 </head>
 <body>
-    <h1>Articles List</h1>
-    <table border="1">
-        <tr>
-            <th>Title</th>
-            <th>Text</th>
-            <th>Published</th>
-            <th>Author ID</th>
-        </tr>
-        <% for (Article article : (List<Article>)request.getAttribute("articles")) { %>
-        <tr>
-            <td><%= article.getTitle() %></td>
-            <td><%= article.getText() %></td>
-            <td><%= article.isPublished() %></td>
-            <td><%= article.getAuthorId() %></td>
-        </tr>
-        <% } %>
-    </table>
+<h2>Всі статті</h2>
+<ul>
+    <c:forEach var="article" items="${articles}">
+        <li>
+            <strong>${article.title}</strong><br/>
+            ${article.text}<br/>
+            Автор: ${article.authorId} | Опубліковано: ${article.published}
+        </li>
+    </c:forEach>
+</ul>
 </body>
 </html>

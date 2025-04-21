@@ -1,12 +1,13 @@
-package data.dao.impl;
+package edu.articles.dao.impl;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
-import data.dao.ArticleDao;
-import data.dto.Article;
+import edu.articles.dao.ArticleDao;
+import edu.articles.dto.Article;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
